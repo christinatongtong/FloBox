@@ -3,16 +3,14 @@ import React from 'react';
 import { Platform } from 'react-native';
 
 import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const wife_color = "rgb(210, 26, 127)";
-  const husband_color = "rgb(0, 115, 176)";
+  const color = 'rgb(92, 6, 53)';
 
   return (
     <Tabs
@@ -28,21 +26,21 @@ export default function TabLayout() {
           },
           default: {},
         }),
-      }}>
+      }}
+      initialRouteName="map"
+      >
       <Tabs.Screen
-        name="index"
+        name="map"
         options={{
-          title: 'Me',
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="face-woman-shimmer" color={color} />,
-          tabBarActiveTintColor: wife_color,
+          title: 'map',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="map" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="husband"
+        name="list"
         options={{
-          title: 'Josh',
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="face-man" color={color} />,
-          tabBarActiveTintColor: husband_color,
+          title: 'list',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="format-list-bulleted" color={color} />
         }}
       />
     </Tabs>

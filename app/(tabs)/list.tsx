@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Image, Text, View } from 'react-native';
 import { ListRow, SearchBar, SegmentedMode } from '../../utils/components';
 import { Dispenser, Mode } from '../../utils/models';
 import { HKU_SEED } from '../../utils/seed';
@@ -45,14 +45,6 @@ export default function ListScreen() {
   }, [dispensers, query, userLocation]);
 
 
-  const initialRegion = useMemo(() => ({
-      latitude: userLocation.lat,
-      longitude: userLocation.lng,
-      latitudeDelta: 0.02,
-      longitudeDelta: 0.02,
-  }), [userLocation]);
-
-
   const onRowPress = (id: string) => {
       console.log('Go to detail for', id);
       };
@@ -60,7 +52,7 @@ export default function ListScreen() {
 
   return (
       <View style={styles.container}>
-          <Text style={styles.header}>FloBox: Find menstrual products nearby</Text>
+          <Image source={require('../../assets/images/FlowBox-logo.png')} style={styles.logo} />
           <SegmentedMode value={mode} onChange={setMode} />
 
           <SearchBar value={query} onChange={setQuery} />

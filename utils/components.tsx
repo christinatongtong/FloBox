@@ -55,16 +55,48 @@ export function SegmentedMode({ value, onChange }: { value: Mode; onChange: (v: 
   }
 
   export function ListRow({ item, onPress, mode }: { item: Dispenser & { distanceKm?: number }; onPress: (id: string) => void; mode: Mode }) {
-    const availability = mode === 'All' ? item.getStatus() : (mode === 'Pads' ? item.getPadsStatus() : item.getTamponsStatus());
     return (
       <TouchableOpacity style={styles.row} onPress={() => onPress(item.id)}>
         <View style={[styles.statusBadge, { backgroundColor: item.getColor(mode) }]} />
         <View style={{ flex: 1 }}>
           <Text style={styles.rowTitle}>{item.name}</Text>
           <Text style={styles.rowSub}>
-            {item.building ?? '—'} · {availability} · {item.pads} pads · {item.tampons} tampons · {item.distanceKm?.toFixed(2)} km</Text>
+            {item.building ?? '—'} · {item.pads} pads · {item.tampons} tampons · {item.distanceKm?.toFixed(2)} km</Text>
         </View>
         <Text style={styles.rowChevron}>›</Text>
       </TouchableOpacity>
     );
+  }
+
+  export function DetailsPane({ dispenser, distanceKm }: { dispenser: Dispenser | null, distanceKm?: number }) {
+    if (!dispenser){
+      return (
+        <View style={styles.detailsPane}>
+          <Text style={[styles.detailsPane, {textAlign: 'center', marginTop: 40}]}>Select a dispenser to view details</Text>
+        </View>
+      )
+    }
+
+    return (
+      <View style={styles.detailsPane}>
+        <Text style={styles.detailsTitle}>{dispenser.name}</Text>
+        <Text style={styles.detailsSub}>Located at {dispenser.building}</Text>
+
+        <View style={styles.detailsRow}>
+          <View style={styles.detailsItem}>
+            <Text style={styles.detailsItem}>{dispenser.pads}</Text>
+            <Text style={styles.detailsText}>Pads</Text>
+          </View>
+          <View style={styles.detailsItem}>
+            <Text style={styles.detailsItem}>{dispenser.tampons}</Text>
+            <Text style={styles.detailsText}>Tampons</Text>
+          </View>
+          <View style={styles.detailsItem}>
+            <Text style={styles.detailsItem}>{distanceKm ? (distanceKm * 1000).toFixed(0) : '—'}m</Text>
+            <Text style={styles.detailsText}>Distance</Text>
+          </View>
+        </View>
+      </View>
+    );
+
   }

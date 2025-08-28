@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
-import { Legend, SearchBar, SegmentedMode } from '../../utils/components';
+import { DetailsPane, Legend, SearchBar, SegmentedMode } from '../../utils/components';
 import { Dispenser, Mode } from '../../utils/models';
 import { HKU_SEED } from '../../utils/seed';
 import { styles } from '../../utils/styles';
@@ -53,6 +53,8 @@ export default function MapScreen() {
       longitudeDelta: 0.01,
   }), [userLocation]);
 
+  const [selected, setSelected] = useState<Dispenser | null>(null);
+
 
   const mapRef = useRef<MapView | null>(null);
 
@@ -67,8 +69,7 @@ export default function MapScreen() {
           <SegmentedMode value={mode} onChange={setMode} />
 
           <SearchBar value={query} onChange={setQuery} />
-          {
-            <View style={styles.mapWrap}>
+            <View style={[styles.mapWrap, {height: '50%'}]}>
                 <MapView
                     ref={mapRef}
                     style={StyleSheet.absoluteFill}
@@ -82,17 +83,19 @@ export default function MapScreen() {
                     key={d.id}
                     coordinate={{ latitude: d.latitude, longitude: d.longitude }}
                     pinColor={d.getColor(mode)}
-                    title={d.name}
-                    description={`${d.getStatus()} · pads:${d.pads} · tampons:${d.tampons}`}
-                    onCalloutPress={() => onRowPress(d.id)}
+                    //title={d.name}
+                    //description={`${d.getStatus()} · pads:${d.pads} · tampons:${d.tampons}`}
+                    onPress={() => setSelected(d)}
                 />
                 ))}
                 </MapView>
-            <View style={styles.legendOverlay}>
-            <Legend mode={mode} />
-            </View>
+                <View style={styles.legendOverlay}>
+                <Legend mode={mode} />
+                </View>
           </View>
-        }
+
+          <DetailsPane dispenser={selected} distanceKm={selected?.distanceFrom(userLocation)} />
+
       </View>
   );
 

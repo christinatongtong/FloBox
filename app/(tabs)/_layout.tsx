@@ -10,10 +10,10 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const color = 'rgb(92, 6, 53)';
 
   return (
     <Tabs
+    initialRouteName="list"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
@@ -27,10 +27,10 @@ export default function TabLayout() {
           default: {},
         }),
       }}
-      initialRouteName="map"
-      >
+
+    >
       <Tabs.Screen
-        name="map"
+        name="index"
         options={{
           title: 'map',
           tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="map" color={color} />,

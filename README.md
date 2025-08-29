@@ -1,4 +1,31 @@
-# Welcome to your Expo app 👋
+# Welcome to FlowBox 👋
+
+<p align="center">
+  <img src="assets/images/FlowBox-logo.png" alt="FlowBox logo" width="140" />
+</p>
+
+## What is FlowBox?
+FlowBox helps users find nearby menstrual product dispensers, see live availability, and navigate quickly via a map or list view.
+
+### Demo
+- App walkthrough: (add a GIF or link to a short video demo)
+- Screens:
+  - Map view: pins colored by availability
+  - List view: distance, pads/tampons counts
+  - Scanner: scan to report or interact with a dispenser
+
+### Tech Stack
+- Expo + React Native
+- Expo Router (tabs + file-based routing)
+- react-native-maps (MapView, markers)
+- expo-camera (scanner)
+- TypeScript
+- Vector Icons: @expo/vector-icons (MaterialCommunityIcons)
+
+### Key Features
+- Real-time inventory updates
+- Search and filter (All/Pads/Tampons)
+- Distance calculation and sorting
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 

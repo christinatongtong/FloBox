@@ -7,9 +7,9 @@
 FlowBox helps university female students find nearby menstrual product dispensers, see live inventory information, and navigate quickly via a map or list view. The third tab opens up a camera for QR code scanning for E-payments (demo only).
 
 ### Demo
-<p align = "center">
+<center>
    <video src = https://github.com/user-attachments/assets/d2cc8f47-d1c8-453f-9162-065f2f49162d >
-<p>
+</center>
 
 ### Tech Stack
 - Expo + React Native
@@ -24,7 +24,9 @@ FlowBox helps university female students find nearby menstrual product dispenser
 - Distance calculation and sorting
 
 
-## Get started: This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Get started
+
+### This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 1. Install dependencies
 

@@ -7,7 +7,7 @@
 FlowBox helps university female students find nearby menstrual product dispensers, see live inventory information, and navigate quickly via a map or list view. The third tab opens up a camera for QR code scanning for E-payments (demo only).
 
 ### Demo
-<video src="assets/demo.mp4" controls width="420" />
+<video src="assets/images/demo.mp4" controls width="420" />
 
 ### Tech Stack
 - Expo + React Native

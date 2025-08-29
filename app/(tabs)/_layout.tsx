@@ -1,12 +1,11 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
-
 import { HapticTab } from '@/components/HapticTab';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
+import React from 'react';
+import { Platform } from 'react-native';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -32,15 +31,22 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'map',
+          title: 'Map',
           tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="map" color={color} />,
         }}
       />
       <Tabs.Screen
         name="list"
         options={{
-          title: 'list',
+          title: 'List',
           tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="format-list-bulleted" color={color} />
+        }}
+      />
+      <Tabs.Screen
+        name="scan"
+        options={{
+          title: 'Scan & Pay',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons size={28} name="qrcode-scan" color={color} />
         }}
       />
     </Tabs>

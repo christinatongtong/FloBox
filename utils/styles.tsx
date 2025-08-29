@@ -1,4 +1,5 @@
 import { Platform, StyleSheet } from 'react-native';
+import { Colors } from '../constants/Colors';
 
 export const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: '#fff', paddingTop: Platform.select({ ios: 54, android: 24, default: 24 }), paddingHorizontal: 16 },
@@ -28,8 +29,36 @@ export const styles = StyleSheet.create({
     detailsSub: { fontSize: 12, color: '#666', marginTop: 2 },
     detailsText: { fontSize: 16, color: '#111', padding: 5},
     detailsChevron: { fontSize: 22, color: '#aaa', paddingHorizontal: 6 },
-
     detailsRow: { flexDirection: 'row', alignItems: 'stretch', justifyContent: 'space-around', marginTop: 8, borderWidth: 1, borderColor: '#eaeaea', borderRadius: 10, paddingVertical: 3, flex: 0 },
+    detailsItem: { alignItems: 'center', fontSize: 30, padding: 5 },
 
-    detailsItem: { alignItems: 'center', fontSize: 30, padding: 5 }
+    scanContainer: {
+      flex: 1,
+      justifyContent: 'center',
+    },
+    message: {
+      textAlign: 'center',
+      paddingBottom: 10,
+    },
+    camera: {
+      flex: 1,
+    },
+    buttonContainer: {
+      position: 'absolute',
+      bottom: 64,
+      flexDirection: 'row',
+      backgroundColor: 'transparent',
+      width: '100%',
+      paddingHorizontal: 64,
+    },
+    button: {
+      flex: 1,
+      alignItems: 'center',
+    },
+    text: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: Colors.light.tint,
+      marginBottom: 60,
+    }
   });

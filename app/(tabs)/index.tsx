@@ -69,7 +69,7 @@ export default function MapScreen() {
           <SegmentedMode value={mode} onChange={setMode} />
 
           <SearchBar value={query} onChange={setQuery} />
-            <View style={[styles.mapWrap, {height: '50%'}]}>
+            <View style={[styles.mapWrap, {height: '45%'}]}>
                 <MapView
                     ref={mapRef}
                     style={StyleSheet.absoluteFill}
